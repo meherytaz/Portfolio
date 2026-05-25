@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mehery Taz — Local SEO & GMB Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0A1628;
+    --navy-mid: #112240;
+    --navy-light: #1a3158;
+    --orange: #FF6B35;
+    --orange-soft: #FF8C5A;
+    --white: #FFFFFF;
+    --off-white: #F0F4FF;
+    --text-muted: #8899AA;
+    --border: rgba(255,107,53,0.2);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 24px;
+    position: relative;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,107,53,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 80% 80%, rgba(17,34,64,0.9) 0%, transparent 70%),
+      var(--navy);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(255,107,53,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(255,107,53,0.15);
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 90px);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 16px;
+    animation: fadeUp 0.9s 0.1s ease both;
+  }
+
+  .hero-name span { color: var(--orange); }
+
+  .hero-title {
+    font-size: clamp(16px, 2.5vw, 22px);
+    color: var(--off-white);
+    font-weight: 300;
+    margin-bottom: 32px;
+    max-width: 560px;
+    line-height: 1.6;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 48px;
+    animation: fadeUp 1s 0.3s ease both;
+  }
+
+  .tag {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    color: var(--off-white);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .tag:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--orange);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s;
+    animation: fadeUp 1s 0.4s ease both;
+  }
+
+  .hero-cta:hover { background: var(--orange-soft); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(255,107,53,0.35); }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 24px; max-width: 1000px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .section-sub {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 48px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0 auto;
+  }
+
+  /* ── ABOUT ── */
+  .about-card {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-card::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,107,53,0.1), transparent 70%);
+  }
+
+  .about-text {
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--off-white);
+    font-weight: 300;
+  }
+
+  .about-text strong { color: var(--orange); font-weight: 600; }
+
+  /* ── SERVICES ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--orange-soft));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .service-card:hover { border-color: var(--orange); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-icon { font-size: 32px; margin-bottom: 16px; }
+  .service-name { font-weight: 700; font-size: 17px; margin-bottom: 8px; }
+  .service-desc { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+
+  /* ── PROJECTS ── */
+  .project-card {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 28px;
+    transition: all 0.3s;
+  }
+
+  .project-card:hover { border-color: rgba(255,107,53,0.5); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+
+  .project-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .project-icon-wrap {
+    width: 56px; height: 56px;
+    background: rgba(255,107,53,0.15);
+    border: 1px solid var(--orange);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .project-meta { flex: 1; }
+
+  .demo-badge {
+    display: inline-block;
+    background: rgba(255,107,53,0.15);
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 50px;
+    margin-bottom: 8px;
+  }
+
+  .project-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .project-type { color: var(--text-muted); font-size: 14px; }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .project-block {
+    background: var(--navy-light);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .project-block-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .project-block ul { list-style: none; }
+  .project-block ul li {
+    color: var(--off-white);
+    font-size: 14px;
+    padding: 5px 0;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .project-block ul li::before {
+    content: '▸';
+    color: var(--orange);
+    position: absolute;
+    left: 0;
+    font-size: 10px;
+    top: 7px;
+  }
+
+  .description-box {
+    background: var(--navy);
+    border-left: 3px solid var(--orange);
+    border-radius: 0 10px 10px 0;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+
+  .description-box p {
+    color: var(--off-white);
+    font-size: 15px;
+    line-height: 1.75;
+    font-style: italic;
+  }
+
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .kw {
+    background: rgba(255,107,53,0.1);
+    border: 1px solid rgba(255,107,53,0.3);
+    color: var(--orange-soft);
+    padding: 5px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* ── ADS STRATEGY ── */
+  .ads-card {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+  }
+
+  .ads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 28px;
+  }
+
+  .ads-block {
+    background: var(--navy-light);
+    border-radius: 12px;
+    padding: 22px;
+  }
+
+  .ads-block-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 14px;
+  }
+
+  .ads-block ul { list-style: none; }
+  .ads-block ul li {
+    color: var(--off-white);
+    font-size: 14px;
+    padding: 5px 0;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .ads-block ul li::before {
+    content: '→';
+    color: var(--orange);
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+  }
+
+  /* ── TOOLS ── */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+  }
+
+  .tool-item {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .tool-item:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+  .tool-item span { font-size: 20px; }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 100%, rgba(255,107,53,0.1) 0%, transparent 70%),
+      var(--navy-mid);
+    border-radius: 24px;
+    padding: 60px 40px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+
+  .contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 36px;
+  }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 28px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: 1px solid transparent;
+  }
+
+  .contact-btn.primary { background: var(--orange); color: var(--white); }
+  .contact-btn.primary:hover { background: var(--orange-soft); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,107,53,0.3); }
+
+  .contact-btn.secondary { background: var(--navy-light); border-color: var(--border); color: var(--off-white); }
+  .contact-btn.secondary:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--text-muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    section { padding: 60px 16px; }
+    .about-card, .project-card, .ads-card { padding: 24px; }
+    .contact-section { padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ HERO ══════════════ -->
+<div class="hero">
+  <div class="badge">✦ Open to Work</div>
+  <h1 class="hero-name">Mehery <span>Taz</span></h1>
+  <p class="hero-title">Local SEO & Google Business Profile Specialist — helping home service businesses get more calls, leads & local customers.</p>
+  <div class="hero-tags">
+    <div class="tag">📍 GMB Optimization</div>
+    <div class="tag">🔍 Local SEO</div>
+    <div class="tag">📢 Google Ads</div>
+    <div class="tag">📱 Facebook Ads</div>
+    <div class="tag">📊 Lead Generation</div>
+  </div>
+  <a href="#contact" class="hero-cta">💬 Let's Work Together</a>
+</div>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section class="reveal">
+  <div class="section-label">Who I Am</div>
+  <h2 class="section-title">About Me</h2>
+  <div class="about-card">
+    <p class="about-text">
+      I help <strong>local home service businesses</strong> improve their online visibility through <strong>Google Business Profile optimization</strong> and paid advertising strategies.<br><br>
+      My focus is helping businesses generate more <strong>local calls</strong>, map visibility, and qualified leads — turning online searches into real customers at your door.<br><br>
+      Whether you run an <strong>AC repair shop, plumbing service, cleaning company</strong>, or any other home service — I know exactly how to get your business found by the right people at the right time.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ SERVICES ══════════════ -->
+<section class="reveal">
+  <div class="section-label">What I Offer</div>
+  <h2 class="section-title">My Services</h2>
+  <p class="section-sub">End-to-end local digital marketing solutions designed specifically for home service businesses.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🗺️</div>
+      <div class="service-name">GMB Creation</div>
+      <div class="service-desc">Complete Google Business Profile setup — categories, hours, service areas, photos, and contact info.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <div class="service-name">GMB Optimization</div>
+      <div class="service-desc">SEO-rich descriptions, service optimization, categories, posts, and Q&A to dominate the map pack.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔍</div>
+      <div class="service-name">Local SEO</div>
+      <div class="service-desc">Keyword research, local targeting, and map visibility strategies that drive qualified traffic.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📢</div>
+      <div class="service-name">Google Ads</div>
+      <div class="service-desc">High-intent local search campaigns designed to generate calls and service leads fast.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <div class="service-name">Facebook Ads</div>
+      <div class="service-desc">Hyper-local Facebook & Instagram campaigns that promote your services to nearby customers.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ PROJECTS ══════════════ -->
+<section class="reveal">
+  <div class="section-label">My Work</div>
+  <h2 class="section-title">Demo Projects</h2>
+  <p class="section-sub">These are demonstration projects showcasing my strategy and approach for real home service business niches.</p>
+
+  <!-- Project 1 -->
+  <div class="project-card reveal">
+    <div class="project-top">
+      <div class="project-icon-wrap">❄️</div>
+      <div class="project-meta">
+        <div class="demo-badge">Demo Project</div>
+        <div class="project-name">Rahim AC Service</div>
+        <div class="project-type">AC Repair & Installation — Local SEO & GMB Optimization</div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-block">
+        <div class="project-block-title">GMB Setup</div>
+        <ul>
+          <li>Business category optimization</li>
+          <li>Service area configuration</li>
+          <li>Business hours setup</li>
+          <li>Contact & attributes</li>
+        </ul>
+      </div>
+      <div class="project-block">
+        <div class="project-block-title">SEO Strategy</div>
+        <ul>
+          <li>Keyword-rich description</li>
+          <li>Service keyword optimization</li>
+          <li>Local keyword targeting</li>
+          <li>Competitor gap analysis</li>
+        </ul>
+      </div>
+      <div class="project-block">
+        <div class="project-block-title">Content Plan</div>
+        <ul>
+          <li>Weekly GMB posts</li>
+          <li>Service-focused images</li>
+          <li>Customer engagement</li>
+          <li>Q&A optimization</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="description-box">
+      <p>"Rahim AC Service provides professional AC repair, installation, gas refill, and maintenance services in Dhaka. Fast response, affordable pricing, and experienced technicians for home and office AC solutions."</p>
+    </div>
+
+    <div>
+      <div class="project-block-title" style="margin-bottom:10px;">Target Keywords</div>
+      <div class="keywords">
+        <span class="kw">AC Repair in Dhaka</span>
+        <span class="kw">AC Service Near Me</span>
+        <span class="kw">AC Installation Dhaka</span>
+        <span class="kw">AC Gas Refill Service</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="project-card reveal">
+    <div class="project-top">
+      <div class="project-icon-wrap">🔧</div>
+      <div class="project-meta">
+        <div class="demo-badge">Demo Project</div>
+        <div class="project-name">Quick Plumbing Solution</div>
+        <div class="project-type">Plumbing Service — GMB Optimization & Local SEO</div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-block">
+        <div class="project-block-title">Services Offered</div>
+        <ul>
+          <li>Pipe fixing & installation</li>
+          <li>Bathroom plumbing</li>
+          <li>Water tank service</li>
+          <li>Emergency plumbing</li>
+        </ul>
+      </div>
+      <div class="project-block">
+        <div class="project-block-title">Optimization Done</div>
+        <ul>
+          <li>GBP category research</li>
+          <li>Service keyword targeting</li>
+          <li>Local SEO structure</li>
+          <li>Call-focused description</li>
+        </ul>
+      </div>
+      <div class="project-block">
+        <div class="project-block-title">Expected Results</div>
+        <ul>
+          <li>Google Maps top visibility</li>
+          <li>Increased customer calls</li>
+          <li>Better local search rank</li>
+          <li>More service inquiries</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="description-box">
+      <p>"Quick Plumbing Solution offers 24/7 emergency plumbing services in Dhaka — from pipe repairs to full bathroom installations. Licensed plumbers, same-day service, and guaranteed workmanship."</p>
+    </div>
+
+    <div>
+      <div class="project-block-title" style="margin-bottom:10px;">Target Keywords</div>
+      <div class="keywords">
+        <span class="kw">Plumber Near Me Dhaka</span>
+        <span class="kw">Emergency Plumbing Service</span>
+        <span class="kw">Pipe Repair Dhaka</span>
+        <span class="kw">Bathroom Plumbing Service</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 3 -->
+  <div class="project-card reveal">
+    <div class="project-top">
+      <div class="project-icon-wrap">🧹</div>
+      <div class="project-meta">
+        <div class="demo-badge">Demo Project</div>
+        <div class="project-name">CleanHome Pro</div>
+        <div class="project-type">Home Cleaning Service — GMB + Google Ads Strategy</div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-block">
+        <div class="project-block-title">Services Covered</div>
+        <ul>
+          <li>Deep house cleaning</li>
+          <li>Sofa & carpet cleaning</li>
+          <li>Post-construction cleanup</li>
+          <li>Office cleaning</li>
+        </ul>
+      </div>
+      <div class="project-block">
+        <div class="project-block-title">Optimization</div>
+        <ul>
+          <li>GMB full setup & audit</li>
+          <li>Photo strategy</li>
+          <li>Review generation plan</li>
+          <li>Local citation building</li>
+        </ul>
+      </div>
+      <div class="project-block">
+        <div class="project-block-title">Ads Strategy</div>
+        <ul>
+          <li>Call-only ad campaigns</li>
+          <li>High-intent keywords</li>
+          <li>Location radius targeting</li>
+          <li>Conversion tracking setup</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <div class="project-block-title" style="margin-bottom:10px;">Target Keywords</div>
+      <div class="keywords">
+        <span class="kw">Home Cleaning Service Dhaka</span>
+        <span class="kw">Sofa Cleaning Near Me</span>
+        <span class="kw">Deep Cleaning Service</span>
+        <span class="kw">House Cleaning Dhaka</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ ADS STRATEGY ══════════════ -->
+<section class="reveal">
+  <div class="section-label">Paid Advertising</div>
+  <h2 class="section-title">Google & Facebook Ads Strategy</h2>
+  <div class="ads-card">
+    <p style="color: var(--text-muted); font-size:15px; line-height:1.7; max-width:600px;">My ad strategies focus on generating <strong style="color:var(--orange)">real, local leads</strong> — not just clicks. Here's the framework I use for home service businesses:</p>
+    <div class="ads-grid">
+      <div class="ads-block">
+        <div class="ads-block-title">Campaign Goal</div>
+        <ul>
+          <li>Generate local calls</li>
+          <li>Drive form submissions</li>
+          <li>Maximize ROI</li>
+          <li>Reduce cost per lead</li>
+        </ul>
+      </div>
+      <div class="ads-block">
+        <div class="ads-block-title">Target Audience</div>
+        <ul>
+          <li>Local homeowners</li>
+          <li>Apartment residents</li>
+          <li>Small business owners</li>
+          <li>Radius-based targeting</li>
+        </ul>
+      </div>
+      <div class="ads-block">
+        <div class="ads-block-title">Ad Types Used</div>
+        <ul>
+          <li>Call-Only Ads</li>
+          <li>Local Search Ads</li>
+          <li>Responsive Search Ads</li>
+          <li>Facebook Lead Ads</li>
+        </ul>
+      </div>
+      <div class="ads-block">
+        <div class="ads-block-title">Sample Keywords</div>
+        <ul>
+          <li>Service near me [city]</li>
+          <li>Emergency [service] Dhaka</li>
+          <li>Affordable [service]</li>
+          <li>Best [service] [area]</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ TOOLS ══════════════ -->
+<section class="reveal">
+  <div class="section-label">My Toolkit</div>
+  <h2 class="section-title">Tools I Use</h2>
+  <div class="tools-grid">
+    <div class="tool-item"><span>🗺️</span> Google Business Profile</div>
+    <div class="tool-item"><span>📢</span> Google Ads</div>
+    <div class="tool-item"><span>📱</span> Meta Ads Manager</div>
+    <div class="tool-item"><span>🎨</span> Canva</div>
+    <div class="tool-item"><span>🔍</span> Google Keyword Planner</div>
+    <div class="tool-item"><span>📊</span> BrightLocal</div>
+    <div class="tool-item"><span>📈</span> Google Analytics</div>
+    <div class="tool-item"><span>🗂️</span> Google Search Console</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section id="contact" class="reveal">
+  <div class="contact-section">
+    <div class="section-label" style="margin-bottom:12px;">Get In Touch</div>
+    <h2 class="section-title">Let's Grow Your Business</h2>
+    <p style="color: var(--text-muted); font-size:16px; line-height:1.7; max-width:500px; margin:0 auto 8px;">Ready to get more calls, more visibility, and more local customers? Let's talk.</p>
+    <div class="contact-buttons">
+      <a href="https://wa.me/01760342957" class="contact-btn primary">📲 WhatsApp Me</a>
+      <a href="https://facebook.com/https://www.facebook.com/meherytaz.professional" class="contact-btn secondary">💬 Facebook</a>
+      <a href="mailto:mtaz.seoexpert@gmail.com" class="contact-btn secondary">📧 Email Me</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+  © 2025 Mehery Taz · Local SEO & GMB Specialist · All Rights Reserved
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
